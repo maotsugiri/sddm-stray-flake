@@ -38,15 +38,16 @@ Item {
                 passwordField.focus = false;
                 tryLogin();
             }
+            onAnimationDone: {
+                passwordField.focus = true;
+            }
         }
 
     }
 
     Connections {
         function onLoginFailed() {
-            passwordField.text = "";
-            passwordField.focus = true;
-            passwordField.playShakeAnimation();
+            passwordField.runAnimation();
         }
 
         target: sddm

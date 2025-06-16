@@ -43,7 +43,9 @@ Item {
 
     onSessionNameChanged: updateIconSource()
     Component.onCompleted: { // Set initial session
-        getNextEntry(1);
+        if(sessionIcons[sessionName] === undefined) {
+            getNextEntry(1);
+        }
         updateIconSource();
     }
 

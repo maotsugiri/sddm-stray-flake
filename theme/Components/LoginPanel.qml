@@ -33,7 +33,6 @@ Item {
         anchors {
             centerIn: parent
         }
-
     }
 
     SessionPanel {
@@ -49,8 +48,7 @@ Item {
     }
 
     Text {
-        text: `@${sddm.hostName}`
-        // text: `@Legion`
+        text: `@${sddm.hostName}_____`
 
         color: "white"
         renderType: Text.QtRendering
@@ -59,7 +57,6 @@ Item {
             top: parent.top
             topMargin: 15
             right: parent.right
-            rightMargin: 70
         }
 
         font {

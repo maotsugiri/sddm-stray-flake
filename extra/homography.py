@@ -54,8 +54,8 @@ if __name__ == "__main__":
 
     # Screen
     origin = np.array([610.975, 137.437, -72.896], dtype=np.float32)
-    extent = np.array([84.6, 2.62, 47.1], dtype=np.float32)
     obj_pitch, obj_yaw, obj_roll = 5.129, 120.475, -28.277
+    extent = np.array([84.6, 2.62, 47.1], dtype=np.float32)
 
     K = compute_intrinsics_from_hfov(fov, width, height)
     R_cam = euler_to_matrix(cam_pitch, cam_yaw, cam_roll)

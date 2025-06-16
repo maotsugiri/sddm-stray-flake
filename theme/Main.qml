@@ -46,7 +46,6 @@ Item {
             property real hue: (dateTime.getHours() * 60 + dateTime.getMinutes()) / 1440 + JSON.parse(config.HueShiftAmount)
             fragmentShader: Qt.resolvedUrl("shader/hue.frag.qsb")
         }
-
     }
 
     Item { //View on other monitors
