@@ -12,6 +12,7 @@ Item {
         sessionNameRole
     )
     property string sessionIconPath: ""
+    property var filterSessions: JSON.parse(config.FilterSessions)
 
     /**
     * @param direction 1 for next, -1 for previous
@@ -23,7 +24,7 @@ Item {
         do {
             currentSessionID = (currentSessionID + direction + sessionModel.count) % sessionModel.count;
         } while (
-            sessionIcons[sessionName] == undefined & 
+            filterSessions && sessionIcons[sessionName] == undefined & 
             //Avoid infinite loops when no entry present
             initEntryID != currentSessionID
         );
@@ -43,7 +44,7 @@ Item {
 
     onSessionNameChanged: updateIconSource()
     Component.onCompleted: { // Set initial session
-        if(sessionIcons[sessionName] === undefined) {
+        if(filterSessions && sessionIcons[sessionName] === undefined) {
             getNextEntry(1);
         }
         updateIconSource();
@@ -82,8 +83,8 @@ Item {
             id: sessionNameText
             color: "white"
 
-            text: (sessionIcons[sessionName]?.name)
-                    ? sessionIcons[sessionName].name
+            text: (sessionIcons[sessionName]?.alias)
+                    ? sessionIcons[sessionName].alias
                     : sessionName
 
             font {
