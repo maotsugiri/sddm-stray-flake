@@ -7,7 +7,7 @@
 }:
 
 stdenvNoCC.mkDerivation rec {
-  pname = "sddm-stray";
+  pname = "sddm-stray-theme";
   version = "1.0";
 
   src = fetchFromGitHub { 
@@ -33,7 +33,7 @@ stdenvNoCC.mkDerivation rec {
   installPhase = ''
     runHook preInstall
 
-    themeDir="$out/share/sddm/themes/sddm-stray"
+    themeDir="$out/share/sddm/themes/sddm-stray-theme"
     install -dm755 "$themeDir"
 
     cp -r "$src/theme/"* "$themeDir"
