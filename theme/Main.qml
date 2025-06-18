@@ -1,7 +1,5 @@
 import "Components"
 import QtQuick 6.8
-import QtQuick.Effects 6.8
-import QtMultimedia 6.8
 
 Item {
     id: root
@@ -48,8 +46,9 @@ Item {
         }
     }
 
-    Item { //View on other monitors
+    Rectangle { //View on other monitors
         id: secondaryView
+        color: "black"
 
         visible: !isPrimary
         anchors.fill: parent
