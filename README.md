@@ -31,6 +31,49 @@ Current=stray
 #...
 ```
 
+Add to `inputs` in `flake.nix`:
+
+```nix
+sddm-stray.url = "github:Bqrry4/sddm-stray";
+```
+
+### Edit DisplayManager Configuration
+
+Usage with a minimal system flake:
+
+```nix
+
+{
+
+  environment.systemPackages = [ 
+   #   sddm-stray
+      pkgs.lyra-cursors
+      inputs.hyprddm.packages.${pkgs.system}.default
+      inputs.sddm-stray.packages.${pkgs.system}.default
+    ]; 
+
+ 
+   services.displayManager.sddm = {
+      enable = true; # Enable SDDM.
+      package = pkgs.kdePackages.sddm;
+      extraPackages = with pkgs; [
+        kdePackages.qtsvg
+        kdePackages.qtmultimedia
+        kdePackages.qtvirtualkeyboard
+
+      ];
+      wayland.enable = true;
+      theme = "sddm-stray";
+      settings = {
+        Theme = {
+          CursorTheme = "LyraS-cursors";
+        };
+      };
+    };
+}
+```
+
+
 # Usage
 
 This theme is keyboard oriented, with the following mappings.
