@@ -14,12 +14,12 @@
           inherit system;
         };
 
-        sddm-stray-theme = pkgs.callPackage ./nix {
+        sddm-theme-stray = pkgs.callPackage ./nix {
           inherit (pkgs) lib stdenvNoCC fetchFromGitHub formats;
           kdePackages = pkgs.kdePackages;
          };
 
       in {
-        packages.default = sddm-stray-theme;
+        packages.default = sddm-theme-stray;
       });
 }
