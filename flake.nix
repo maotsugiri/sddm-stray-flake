@@ -1,4 +1,3 @@
-## For GitHub
 {
   description = "Your system config";
 
